@@ -314,9 +314,32 @@
     padding: 1.25rem;
     transition: border-color .15s;
     cursor: default;
+    position: relative;
+    overflow: hidden;
   }
   .company-card:hover { border-color: var(--border2); }
-  .company-card.own { border-color: rgba(108,92,231,.4); background: rgba(108,92,231,.06); }
+  .company-card.own {
+    border-color: rgba(116, 255, 121, 0.28);
+    background:
+      radial-gradient(140% 120% at 0% 0%, rgba(118, 255, 113, 0.22) 0%, rgba(118, 255, 113, 0.06) 32%, rgba(0, 0, 0, 0) 65%),
+      radial-gradient(120% 140% at 100% 100%, rgba(0, 196, 93, 0.18) 0%, rgba(0, 196, 93, 0.04) 45%, rgba(0, 0, 0, 0) 74%),
+      linear-gradient(145deg, rgba(27, 116, 45, 0.55) 0%, rgba(12, 86, 31, 0.4) 38%, rgba(6, 43, 20, 0.72) 100%);
+    box-shadow: inset 0 0 0 1px rgba(180, 255, 176, 0.08), 0 12px 28px rgba(0, 0, 0, 0.26);
+  }
+  .company-card.own::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(150, 255, 142, 0.14);
+  }
+  .company-card.own .card-divider { background: rgba(162, 255, 149, 0.2); }
+  .company-card.own .card-sub,
+  .company-card.own .feat-label,
+  .company-card.own .rating-source,
+  .company-card.own .rating-count { color: rgba(233, 255, 231, 0.74); }
+  .company-card.own .feat-val { color: rgba(244, 255, 243, 0.9); }
   .company-card.hidden { display: none; }
 
   .card-head {
@@ -342,7 +365,7 @@
   }
   .tag-eu { background: rgba(45,156,219,.2); color: #74b9ff; border: 1px solid rgba(45,156,219,.3); }
   .tag-us { background: rgba(232,67,147,.2); color: #fd79a8; border: 1px solid rgba(232,67,147,.3); }
-  .tag-own { background: rgba(108,92,231,.3); color: #fff; border: 1px solid rgba(108,92,231,.4); }
+  .tag-own { background: rgba(159,245,144,.2); color: #ebffe7; border: 1px solid rgba(162,255,149,.35); }
   .tag-ev { background: rgba(0,184,148,.15); color: var(--green2); border: 1px solid rgba(0,184,148,.25); }
   .tag-solar { background: rgba(253,203,110,.15); color: var(--amber); border: 1px solid rgba(253,203,110,.25); }
   .tag-home { background: rgba(225,112,85,.15); color: #fab1a0; border: 1px solid rgba(225,112,85,.25); }
@@ -912,9 +935,64 @@
     padding: 1.25rem;
     transition: border-color .15s;
     cursor: default;
+    position: relative;
+    overflow: hidden;
   }
   .company-card:hover { border-color: rgba(0,0,0,.15); }
-  .company-card.own { border-color: rgba(88,73,196,.35); background: rgba(88,73,196,.04); }
+  .company-card.own {
+    border-color: rgba(83, 188, 116, 0.45);
+    background:
+      radial-gradient(130% 120% at 0% 0%, rgba(122, 234, 141, 0.2) 0%, rgba(122, 234, 141, 0.06) 34%, rgba(0, 0, 0, 0) 66%),
+      radial-gradient(120% 130% at 100% 100%, rgba(35, 152, 73, 0.25) 0%, rgba(35, 152, 73, 0.08) 45%, rgba(0, 0, 0, 0) 74%),
+      linear-gradient(145deg, rgba(36, 116, 55, 0.96) 0%, rgba(24, 96, 47, 0.96) 42%, rgba(13, 66, 34, 0.98) 100%);
+    box-shadow: inset 0 0 0 1px rgba(168, 242, 175, 0.2), 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+  .company-card.own::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(188, 247, 191, 0.22);
+  }
+  .company-card.own .card-name,
+  .company-card.own .card-url,
+  .company-card.own .rating-score,
+  .company-card.own .feat-val strong { color: #ffffff; }
+  .company-card.own .card-sub,
+  .company-card.own .feat-label,
+  .company-card.own .feat-val,
+  .company-card.own .rating-source,
+  .company-card.own .rating-count { color: rgba(238, 255, 240, 0.9); }
+  .company-card.own .card-divider { background: rgba(196, 247, 201, 0.28); }
+  .company-card.own .rating-score { color: #ffffff !important; }
+  .company-card.own .tag:not(.tag-own) {
+    background: rgba(15, 62, 31, 0.42);
+    color: #f3fff4;
+    border-color: rgba(190, 248, 197, 0.28);
+  }
+  .company-card.own .pricing-badge {
+    background: rgba(15, 62, 31, 0.46);
+    color: #f3fff4;
+    border-color: rgba(190, 248, 197, 0.32);
+  }
+  .company-card.own .funding-chip {
+    background: rgba(15, 62, 31, 0.4);
+    color: #ecffef;
+    border-color: rgba(190, 248, 197, 0.28);
+  }
+  .company-card.own .funding-chip.highlight {
+    background: rgba(22, 89, 43, 0.56);
+    color: #ffffff;
+    border-color: rgba(194, 249, 201, 0.36);
+  }
+  .company-card.own .yes { color: #d8ffe0; }
+  .company-card.own .partial { color: #ffe8a6; }
+  .company-card.own .no { color: rgba(235, 255, 238, 0.72); }
+  .company-card.own .stars {
+    color: #ffd66b;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.35);
+  }
   .company-card.hidden { display: none; }
 
   .card-head {
@@ -940,7 +1018,7 @@
   }
   .tag-eu { background: rgba(26,111,170,.1); color: #1a6faa; border: 1px solid rgba(26,111,170,.25); }
   .tag-us { background: rgba(192,22,110,.1); color: #c0166e; border: 1px solid rgba(192,22,110,.25); }
-  .tag-own { background: rgba(88,73,196,.12); color: #3b2f8f; border: 1px solid rgba(88,73,196,.3); }
+  .tag-own { background: rgba(210,255,214,.18); color: #ffffff; border: 1px solid rgba(210,255,214,.36); }
   .tag-ev { background: rgba(0,135,90,.1); color: #00875a; border: 1px solid rgba(0,135,90,.25); }
   .tag-solar { background: rgba(180,83,9,.1); color: #b45309; border: 1px solid rgba(180,83,9,.2); }
   .tag-home { background: rgba(192,57,43,.1); color: #9b2335; border: 1px solid rgba(192,57,43,.2); }
