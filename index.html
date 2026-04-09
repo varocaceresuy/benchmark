@@ -1272,6 +1272,57 @@
     outline: 2px solid var(--accent);
     outline-offset: 1px;
   }
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .nav-controls .theme-toggle { margin-left: 0; }
+  .nav-controls .lang-select { margin-left: .5rem; }
+  @media (max-width: 768px) {
+    .nav {
+      height: auto;
+      min-height: 52px;
+      padding: .5rem .75rem;
+      gap: .5rem;
+      flex-wrap: wrap;
+      overflow: visible;
+    }
+    .nav-brand {
+      margin-right: 0;
+      min-width: 0;
+      flex: 1 1 auto;
+      font-size: 12px;
+    }
+    .nav-brand img {
+      width: 38px !important;
+      height: 38px !important;
+    }
+    .nav-controls {
+      flex: 0 0 auto;
+    }
+    .nav-tabs {
+      order: 3;
+      flex: 1 0 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding-bottom: 2px;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+    .nav-tab {
+      height: 40px;
+      padding: 0 12px;
+      font-size: 12px;
+      flex: 0 0 auto;
+    }
+    .theme-toggle,
+    .lang-select {
+      height: 30px;
+    }
+  }
   /* Hide default Google Translate UI; we control via custom dropdown */
   .goog-te-banner-frame.skiptranslate,
   .goog-te-gadget,
@@ -1302,7 +1353,7 @@
 <div id="app-content">
 
 <nav class="nav">
-  <div class="nav-brand"><img src="./Logomark.svg" alt="Logomark" style="width:48px;height:48px;margin-right:6px;">InstantTechology Benchmark</div>
+  <div class="nav-brand"><img src="./Logomark.svg" alt="Logomark" style="width:48px;height:48px;margin-right:6px;">Benchmark</div>
   <div class="nav-tabs">
     <a class="nav-tab active" onclick="showSection('overview', this)" href="#">Overview <span class="nav-count">13</span></a>
     <a class="nav-tab" onclick="showSection('europe', this)" href="#">🇪🇺 Europa <span class="nav-count">9</span></a>
@@ -1310,14 +1361,16 @@
     <a class="nav-tab" onclick="showSection('comparison', this)" href="#">Feature Matrix</a>
     <a class="nav-tab" onclick="showSection('analysis', this)" href="#">Análisis estratégico</a>
   </div>
-  <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo claro">
-    <span class="theme-toggle-track" aria-hidden="true"><span>🌙</span><span>☀</span></span>
-    <span class="theme-toggle-thumb" aria-hidden="true"></span>
-  </button>
-  <select id="lang-select" class="lang-select" aria-label="Cambiar idioma">
-    <option value="es">Español</option>
-    <option value="en">English</option>
-  </select>
+  <div class="nav-controls">
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Activar modo claro">
+      <span class="theme-toggle-track" aria-hidden="true"><span>🌙</span><span>☀</span></span>
+      <span class="theme-toggle-thumb" aria-hidden="true"></span>
+    </button>
+    <select id="lang-select" class="lang-select" aria-label="Cambiar idioma">
+      <option value="es">Español</option>
+      <option value="en">English</option>
+    </select>
+  </div>
 </nav>
 
 <div class="main">
@@ -1338,7 +1391,7 @@
     </div>
 
     <div class="section-header">
-      <h2>Tabla 1 — Plataformas de Orquestación de Instalaciones (SaaS Core)</h2>
+      <h2>Plataforma para instaladores</h2>
       <p>Productos cuyo negocio principal es gestionar el proceso de instalación de extremo a extremo</p>
     </div>
     <div class="cards-grid" id="cards-t1">
@@ -1820,7 +1873,7 @@
 
     <!-- TABLE 2 -->
     <div class="section-header">
-      <h2>Tabla 2 — Hardware + Software (Fabricantes con Plataforma de Gestión)</h2>
+      <h2>Hardware + Software (Fabricantes con Plataforma de Gestión)</h2>
       <p>Fabricantes de cargadores/hardware que incluyen un ecosistema de software para gestión de instaladores</p>
     </div>
     <div class="cards-grid" id="cards-t2">
@@ -2735,6 +2788,7 @@
 
     // Extra patch for terms that Google sometimes leaves untranslated in tables.
     const enTermMap = [
+      ['Plataforma para instaladores', 'Installation Platforms'],
       ['Tabla', 'Table'],
       ['Plataformas', 'Platforms'],
       ['Orquestación', 'Orchestration'],
